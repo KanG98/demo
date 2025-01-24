@@ -1,3 +1,4 @@
 dependencies {
+    project('service-faceid')
     project('service-passkey')
 }
