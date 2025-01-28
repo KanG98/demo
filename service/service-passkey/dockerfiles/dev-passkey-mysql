@@ -1,0 +1,15 @@
+# Use the official MySQL image
+FROM mysql:8.0
+
+# Set environment variables for MySQL
+ENV MYSQL_ROOT_PASSWORD=rootpassword
+ENV MYSQL_DATABASE=passkey
+
+# Copy the SQL script into the Docker container
+COPY ../passkey.sql /docker-entrypoint-initdb.d/
+
+# Expose the MySQL default port
+EXPOSE 3306
+
+#docker build -f dockerfiles/dev-passkey-mysql -t dev-passkey-mysql .
+#docker run -d --name dev-passkey-mysql -p 3306:3306 dev-passkey-mysql
